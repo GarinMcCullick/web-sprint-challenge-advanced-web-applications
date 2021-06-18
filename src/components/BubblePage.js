@@ -21,7 +21,7 @@ const BubblePage = () => {
     .catch(err=>{
         console.log(err)
     })
-  })
+  },[])
 
   const [colors, setColors] = useState([]);
   const [editing, setEditing] = useState(false);
