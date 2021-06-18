@@ -1,6 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-
-import PrivateRoute from './PrivateRoute'
+import axios from 'axios'
 
 import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
@@ -8,6 +7,7 @@ import ColorList from "./ColorList";
 
 //import { editColorService, deleteColorService } from '../services/colorServices';
 import axiosWithAuth from '../helpers/axiosWithAuth';
+
 
 
 
@@ -31,6 +31,13 @@ const BubblePage = () => {
   };
 
   const saveEdit = (editColor) => {
+    axios.put('http://localhost:5000/api/colors/:id', editColor)
+    .then((res)=>{
+      console.log(res)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
   };
 
   const deleteColor = (colorToDelete) => {
